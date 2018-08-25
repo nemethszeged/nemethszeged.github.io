@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> Fox Blogz </title>
+  </head>
+  <body>
+      <!--HEADER-->
+      <header>
+          <p class="logo"> Fox Blogz </p>
+      </header>
+      <!--ARTICLE-->
+      <div class="content">
+          <div class="left-side">
+              <article>
+                  <img src="roka.jpg" height=300px>
+                  <div class="article-content">
+                      <h1>Így használd a Fox Blogz-t!</h1>
+                      <p>Add meg a róka neved, és írd meg, amit egy rókának meg kell írnia. 😉</p>
+                  </div>
+              </article>
+          </div>
+          <!--ÚJ POSZT-->
+          <aside>
+              <h3>Róka vagy? Blogolj:</h3>
+              <form>
+                  <input type="text" placeholder="Róka neved" class="title"><br>
+                  <textarea type="textarea" placeholder="Szöveg" class="content2" rows="10" cols="50"></textarea><br>
+                  <input type="submit" value="Küldés" class="newpost">
+              </form>
+          </aside>
+      </div>
+      <!--FOOTER-->
+      <footer>
+          <p class="copyright">Készítette: <a href="https://github.com/nemethszeged" target="new_window">Németh Dávid</a></p>
+      </footer>
+      <!--JAVASCRIPT-->
+      <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+      <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyCWXZNijewIgJAlVRlp6o5O7r4KYIumX6M",
+            authDomain: "foxblogz.firebaseapp.com",
+            databaseURL: "https://foxblogz.firebaseio.com",
+            projectId: "foxblogz",
+            storageBucket: "foxblogz.appspot.com",
+            messagingSenderId: "263433074753"
+          };
+          firebase.initializeApp(config);
+          fb = firebase.database();
+      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="scripts.js"></script>
+  </body>
+</html>
