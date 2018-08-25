@@ -49,6 +49,7 @@ initialData.forEach( post => {
     <div class="article-content">
       <h2>${post.title}</h2>
       <p>${post.text}</p>
+      <!---<button type="button" data-delete="1" class="delete-button"> X </button>--->
     </div>
   </article>
   `
@@ -68,6 +69,7 @@ fb.ref("posts").once('value').then(data => {
         <div class="article-content">
           <h2>${post.title}</h2>
           <p>${post.text}</p>
+          <button type="button" data-delete="1" class="delete-button"> X </button>
         </div>
       </article>
       `
@@ -75,6 +77,17 @@ fb.ref("posts").once('value').then(data => {
       id = initialData.length - 1;
     })
 }});
+
+// delete button
+
+// fb.ref("posts/2").remove();
+
+
+$(".left-side").on("click", ".delete-button", (event) => {
+    fb.ref("posts/" + $(event.target).attr("data-delete")).remove();
+});
+
+
 
 // firebase update
 

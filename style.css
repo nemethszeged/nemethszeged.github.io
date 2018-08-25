@@ -87,3 +87,6 @@ input,textarea {
   50% {background-color: #00800087;}
   100% {background-color: green;}
 }
+.delete-button {
+  margin-left: 450px;
+}
