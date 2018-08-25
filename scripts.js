@@ -25,8 +25,8 @@ $(".newpost").on("click", (event) => {
     };
     
     fb.ref(path).set(dataToSave);
-    let newTitle = $(".title").val("");
-    let newContent = $(".content2").val("");
+    $(".title").val("");
+    $(".content2").val("");
   }
 );
 
@@ -34,8 +34,8 @@ $(".newpost").on("click", (event) => {
 
 let initialData = [
   {
-    title: "First Post",
-    text: "Text of the first one"
+    title: "Róka Dávid",
+    text: "Szevasz!"
   }
 ];
 
@@ -53,40 +53,26 @@ initialData.forEach( post => {
 );
 });
 
-/* firebase write
-
-let path = "posts/1";
-
-let dataToSave = {
-  title: "My first saved blog post",
-  text: "Some hilarious content, which proves how awesome I am."
-};
-
-fb.ref(path).set(dataToSave);
-
-*/
-
-
 // firebase load
 
 fb.ref("posts").once('value').then(data => {
   let initialData = data.val();
-  initialData.forEach( post => {
-    $(".left-side").append(
-    `
-    <article>
-      <!--- <img src="roka.jpg" height=300px>--->
-      <div class="article-content">
-        <h2>${post.title}</h2>
-        <p>${post.text}</p>
-      </div>
-    </article>
-    `
-  );
-  id = initialData.length - 1;
-  })
-});
-
+  if (initialData !== null) {
+    initialData.forEach( post => {
+      $(".left-side").append(
+      `
+      <article>
+        <!--- <img src="roka.jpg" height=300px>--->
+        <div class="article-content">
+          <h2>${post.title}</h2>
+          <p>${post.text}</p>
+        </div>
+      </article>
+      `
+    );
+      id = initialData.length - 1;
+    })
+}});
 
 // firebase update
 
@@ -100,3 +86,16 @@ fb.ref(samePath).set(updatedData);
 // firebase delete
 
 fb.ref("posts/2").remove(); */
+
+/* firebase write
+
+let path = "posts/1";
+
+let dataToSave = {
+  title: "My first saved blog post",
+  text: "Some hilarious content, which proves how awesome I am."
+};
+
+fb.ref(path).set(dataToSave);
+
+*/
