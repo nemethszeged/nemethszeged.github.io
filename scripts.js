@@ -1,4 +1,4 @@
-alert("A 🦊  éleményért dobd el a mobilod - és vált laptopra!");
+alert("A 🦊  éleményért dobd el a mobilod - és válts laptopra!");
 
 // kötelező + write-pro
 
