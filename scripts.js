@@ -69,7 +69,7 @@ fb.ref("posts").once('value').then(data => {
         <div class="article-content">
           <h2>${post.title}</h2>
           <p>${post.text}</p>
-          <button type="button" data-delete="1" class="delete-button"> X </button>
+          <!---<button type="button" data-delete="1" class="delete-button"> X </button>--->
         </div>
       </article>
       `
