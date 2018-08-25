@@ -1,4 +1,6 @@
-// kötelező
+// kötelező + write-pro
+
+let id = 0;
 
 $(".newpost").on("click", (event) => {
  event.preventDefault();
@@ -14,7 +16,18 @@ $(".newpost").on("click", (event) => {
       </div>
     </article>
     `)
-}
+    id = id + 1;
+    let path = "posts/" + id;
+
+    let dataToSave = {
+      title: newTitle,
+      text: newContent
+    };
+    
+    fb.ref(path).set(dataToSave);
+    let newTitle = $(".title").val("");
+    let newContent = $(".content2").val("");
+  }
 );
 
 // nice to have
@@ -23,11 +36,7 @@ let initialData = [
   {
     title: "First Post",
     text: "Text of the first one"
-  },
-  {
-    title: "Second Post",
-    text: "Text of the second one"
-  },
+  }
 ];
 
 initialData.forEach( post => {
@@ -44,7 +53,7 @@ initialData.forEach( post => {
 );
 });
 
-// firebase write
+/* firebase write
 
 let path = "posts/1";
 
@@ -55,11 +64,29 @@ let dataToSave = {
 
 fb.ref(path).set(dataToSave);
 
+*/
+
+
 // firebase load
 
 fb.ref("posts").once('value').then(data => {
-  let savedPosts = data.val();
+  let initialData = data.val();
+  initialData.forEach( post => {
+    $(".left-side").append(
+    `
+    <article>
+      <!--- <img src="roka.jpg" height=300px>--->
+      <div class="article-content">
+        <h2>${post.title}</h2>
+        <p>${post.text}</p>
+      </div>
+    </article>
+    `
+  );
+  id = initialData.length - 1;
+  })
 });
+
 
 // firebase update
 
