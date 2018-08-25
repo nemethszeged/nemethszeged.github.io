@@ -1,3 +1,5 @@
+alert("A 🦊  éleményért dobd el a mobilod - és vált laptopra!");
+
 // kötelező + write-pro
 
 let id = 0;
